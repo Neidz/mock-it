@@ -1,5 +1,5 @@
-import { Box } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react';
 
 export const Drawer = () => {
-    return <Box></Box>
-}
+    return <Box></Box>;
+};

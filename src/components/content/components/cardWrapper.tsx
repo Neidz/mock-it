@@ -1,8 +1,8 @@
-import { Box } from '@chakra-ui/react'
-import { FC, ReactNode } from 'react'
+import { Box } from '@chakra-ui/react';
+import { FC, ReactNode } from 'react';
 
 interface CardWrapperProps {
-    children: ReactNode
+    children: ReactNode;
 }
 
 export const CardWrapper: FC<CardWrapperProps> = ({ children }) => {
@@ -18,5 +18,5 @@ export const CardWrapper: FC<CardWrapperProps> = ({ children }) => {
         >
             {children}
         </Box>
-    )
-}
+    );
+};

@@ -1,17 +1,28 @@
-import { Editable, EditableInput, EditablePreview } from '@chakra-ui/react'
-import { FC } from 'react'
-import { CardWrapper } from './components/cardWrapper'
+import { Editable, EditableInput, EditablePreview } from '@chakra-ui/react';
+import { FC, useEffect, useState } from 'react';
+import { MockedDataProps } from '../../types';
+import { createMockFromInterface } from '../../utils/interfaceParsing';
+import { CardWrapper } from './components/cardWrapper';
 
-export const InterfaceInput: FC = () => {
-    const lorem =
-        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus impedit esse recusandae iste? Veritatis nisi omnis quae possimus. Voluptates, vero sunt? Laborum optio, porro odit quasi eum accusantium ut perferendis.'
+export const InterfaceInput: FC<MockedDataProps> = ({
+    mockedData,
+    setMockedData,
+}) => {
+    const [inputInterface, setInputInterface] = useState<string>('');
+
+    useEffect(() => {
+        setMockedData(createMockFromInterface(inputInterface));
+    }, [inputInterface, setMockedData]);
 
     return (
         <CardWrapper>
-            <Editable placeholder={lorem}>
+            <Editable
+                placeholder="Paste your interface here"
+                onChange={(value) => setInputInterface(value)}
+            >
                 <EditableInput></EditableInput>
                 <EditablePreview />
             </Editable>
         </CardWrapper>
-    )
-}
+    );
+};
